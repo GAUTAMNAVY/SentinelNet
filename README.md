@@ -268,37 +268,6 @@ predictions, alert_count = nids.process_batch(traffic_data)
 - **Features**: 41 features + 1 label
 - **Classes**: 5 (Normal + 4 attack categories)
 
-## 🎓 Academic Context
-
-This project fulfills the requirements for an 8-week AI/ML internship covering:
-
-- Machine Learning fundamentals
-- Classification algorithms
-- Anomaly detection
-- Model evaluation techniques
-- Real-world application deployment
-
-## 🔐 Security Considerations
-
-- This is a detection system, not a prevention system
-- Alerts should be reviewed by security professionals
-- False positives are possible and should be investigated
-- Regular model retraining is recommended for evolving threats
-
-## 📄 License
-
-This project is for educational and research purposes.
-
-## 🤝 Contributing
-
-Improvements and suggestions are welcome! Areas for enhancement:
-
-- Deep learning models (LSTM, CNN)
-- Additional datasets (CICIDS2017, UNSW-NB15)
-- Real-time packet capture integration
-- Web-based dashboard
-
-## 📧 Contact
 
 For questions or issues, please open an issue in the project repository.
 
