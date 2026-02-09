@@ -1,0 +1,375 @@
+2026-02-09 19:58:12,756 - sentinelnet_main - INFO - SentinelNet NIDS Initialized
+2026-02-09 19:58:12,756 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 19:58:12,756 - sentinelnet_main - INFO - STARTING SENTINELNET NIDS PIPELINE
+2026-02-09 19:58:12,756 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 19:58:12,756 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 19:58:12,757 - sentinelnet_main - INFO - MODULE 1: Dataset Acquisition and Exploration
+2026-02-09 19:58:12,758 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 19:58:12,758 - sentinelnet_main - INFO - Downloading train dataset from https://raw.githubusercontent.com/defcom17/NSL_KDD/master/KDDTrain+.txt...
+2026-02-09 19:58:14,077 - sentinelnet_main - INFO - Downloading test dataset from https://raw.githubusercontent.com/defcom17/NSL_KDD/master/KDDTest+.txt...
+2026-02-09 19:58:14,722 - sentinelnet_main - INFO - 
+Loading datasets...
+2026-02-09 19:58:15,320 - sentinelnet_main - INFO - 
+Dataset Statistics:
+2026-02-09 19:58:15,320 - sentinelnet_main - INFO -   Total training samples: 125973
+2026-02-09 19:58:15,320 - sentinelnet_main - INFO -   Total test samples: 22544
+2026-02-09 19:58:15,320 - sentinelnet_main - INFO -   Total features: 41
+2026-02-09 19:58:15,321 - sentinelnet_main - INFO - 
+Attack Type Distribution (Training Set):
+2026-02-09 19:58:15,351 - sentinelnet_main - INFO -   normal: 67343
+2026-02-09 19:58:15,351 - sentinelnet_main - INFO -   neptune: 41214
+2026-02-09 19:58:15,351 - sentinelnet_main - INFO -   satan: 3633
+2026-02-09 19:58:15,351 - sentinelnet_main - INFO -   ipsweep: 3599
+2026-02-09 19:58:15,351 - sentinelnet_main - INFO -   portsweep: 2931
+2026-02-09 19:58:15,352 - sentinelnet_main - INFO -   smurf: 2646
+2026-02-09 19:58:15,352 - sentinelnet_main - INFO -   nmap: 1493
+2026-02-09 19:58:15,352 - sentinelnet_main - INFO -   back: 956
+2026-02-09 19:58:15,354 - sentinelnet_main - INFO -   teardrop: 892
+2026-02-09 19:58:15,354 - sentinelnet_main - INFO -   warezclient: 890
+2026-02-09 19:58:15,354 - sentinelnet_main - INFO - 
+Data Types:
+2026-02-09 19:58:15,369 - sentinelnet_main - INFO -   Numerical features: 39
+2026-02-09 19:58:15,374 - sentinelnet_main - INFO -   Categorical features: 4
+2026-02-09 19:58:15,407 - sentinelnet_main - INFO - 
+Missing Values:
+2026-02-09 19:58:15,407 - sentinelnet_main - INFO -   Training set: 0
+2026-02-09 19:58:15,408 - sentinelnet_main - INFO -   Test set: 0
+2026-02-09 19:58:15,408 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 19:58:15,408 - sentinelnet_main - INFO - MODULE 2: Data Cleaning and Preprocessing
+2026-02-09 19:58:15,408 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 19:58:15,425 - sentinelnet_main - INFO - 
+Mapping attack types to categories...
+2026-02-09 19:58:15,543 - sentinelnet_main - INFO - Encoding categorical features...
+2026-02-09 19:58:15,699 - sentinelnet_main - INFO - Normalizing numerical features...
+2026-02-09 19:58:15,876 - sentinelnet_main - INFO - 
+Class Distribution:
+2026-02-09 19:58:15,894 - sentinelnet_main - INFO -   Normal: Train=67343, Test=9711
+2026-02-09 19:58:15,904 - sentinelnet_main - INFO -   DoS: Train=45927, Test=7167
+2026-02-09 19:58:15,914 - sentinelnet_main - INFO -   R2L: Train=995, Test=2885
+2026-02-09 19:58:15,923 - sentinelnet_main - INFO -   Probe: Train=11656, Test=2421
+2026-02-09 19:58:15,931 - sentinelnet_main - INFO -   U2R: Train=52, Test=67
+2026-02-09 19:58:15,939 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 19:58:15,939 - sentinelnet_main - INFO - MODULE 3: Feature Engineering and Selection
+2026-02-09 19:58:15,939 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 19:58:15,939 - sentinelnet_main - INFO - 
+Analyzing feature importance...
+2026-02-09 19:58:17,473 - sentinelnet_main - INFO - 
+Top 10 Most Important Features:
+2026-02-09 19:58:17,476 - sentinelnet_main - INFO -   src_bytes: 0.1824
+2026-02-09 19:58:17,476 - sentinelnet_main - INFO -   flag: 0.0772
+2026-02-09 19:58:17,476 - sentinelnet_main - INFO -   dst_host_serror_rate: 0.0664
+2026-02-09 19:58:17,477 - sentinelnet_main - INFO -   same_srv_rate: 0.0640
+2026-02-09 19:58:17,477 - sentinelnet_main - INFO -   dst_bytes: 0.0613
+2026-02-09 19:58:17,477 - sentinelnet_main - INFO -   diff_srv_rate: 0.0562
+2026-02-09 19:58:17,478 - sentinelnet_main - INFO -   count: 0.0541
+2026-02-09 19:58:17,478 - sentinelnet_main - INFO -   srv_serror_rate: 0.0541
+2026-02-09 19:58:17,478 - sentinelnet_main - INFO -   dst_host_same_src_port_rate: 0.0378
+2026-02-09 19:58:17,478 - sentinelnet_main - INFO -   serror_rate: 0.0337
+2026-02-09 19:58:19,110 - sentinelnet_main - INFO - 
+Performing correlation analysis...
+2026-02-09 19:58:19,663 - sentinelnet_main - INFO - 
+Applying PCA (components=20)...
+2026-02-09 19:58:19,752 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 19:58:19,752 - sentinelnet_main - INFO - MODULE 4: Model Building and Training (Supervised Learning)
+2026-02-09 19:58:19,753 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 19:58:19,753 - sentinelnet_main - INFO - 
+[1/3] Training Random Forest Classifier...
+2026-02-09 19:58:22,521 - sentinelnet_main - INFO - 
+[2/3] Training Logistic Regression...
+2026-02-09 19:58:33,281 - sentinelnet_main - INFO - 
+[3/3] Training SVM (on PCA features)...
+2026-02-09 20:04:56,108 - sentinelnet_main - INFO - 
+Quick Model Evaluation:
+2026-02-09 20:04:56,178 - sentinelnet_main - INFO -   Random Forest: 0.7480
+2026-02-09 20:04:56,210 - sentinelnet_main - INFO -   Logistic Regression: 0.7615
+2026-02-09 20:05:05,897 - sentinelnet_main - INFO -   SVM: 0.7372
+2026-02-09 20:05:05,897 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:05:05,898 - sentinelnet_main - INFO - MODULE 5: Anomaly Detection (Unsupervised Learning)
+2026-02-09 20:05:05,898 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:05:05,899 - sentinelnet_main - INFO - 
+[1/2] Training Isolation Forest...
+2026-02-09 20:05:07,340 - sentinelnet_main - INFO - 
+[2/2] Training K-Means Clustering...
+2026-02-09 20:05:10,477 - sentinelnet_main - INFO -   Cluster distribution (test): [15161  2122  5214    45     2]
+2026-02-09 20:05:10,477 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:05:10,477 - sentinelnet_main - INFO - MODULE 6: Model Evaluation and Tuning
+2026-02-09 20:05:10,477 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:05:10,478 - sentinelnet_main - INFO - 
+Evaluating Random Forest...
+2026-02-09 20:05:10,872 - sentinelnet_main - INFO -   Accuracy:  0.7480
+2026-02-09 20:05:10,872 - sentinelnet_main - INFO -   Precision: 0.8059
+2026-02-09 20:05:10,872 - sentinelnet_main - INFO -   Recall:    0.7480
+2026-02-09 20:05:10,872 - sentinelnet_main - INFO -   F1-Score:  0.6952
+2026-02-09 20:05:11,328 - sentinelnet_main - INFO - 
+Evaluating Logistic Regression...
+2026-02-09 20:05:11,607 - sentinelnet_main - INFO -   Accuracy:  0.7615
+2026-02-09 20:05:11,608 - sentinelnet_main - INFO -   Precision: 0.7395
+2026-02-09 20:05:11,608 - sentinelnet_main - INFO -   Recall:    0.7615
+2026-02-09 20:05:11,608 - sentinelnet_main - INFO -   F1-Score:  0.7085
+2026-02-09 20:05:12,073 - sentinelnet_main - INFO - 
+Evaluating SVM...
+2026-02-09 20:05:33,367 - sentinelnet_main - INFO -   Accuracy:  0.7372
+2026-02-09 20:05:33,367 - sentinelnet_main - INFO -   Precision: 0.7850
+2026-02-09 20:05:33,367 - sentinelnet_main - INFO -   Recall:    0.7372
+2026-02-09 20:05:33,367 - sentinelnet_main - INFO -   F1-Score:  0.6882
+2026-02-09 20:05:33,727 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:05:33,727 - sentinelnet_main - INFO - MODULE 7: Alert Generation and Logging
+2026-02-09 20:05:33,728 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:05:33,728 - sentinelnet_main - INFO - 
+Generating alerts using best model...
+2026-02-09 20:05:33,805 - sentinelnet_main - INFO - 
+Sample Alerts:
+2026-02-09 20:05:33,805 - sentinelnet_main - INFO -   [2026-02-09 20:05:33] Probe - Severity: 1 - FALSE_POSITIVE
+2026-02-09 20:05:33,805 - sentinelnet_main - INFO -   [2026-02-09 20:05:33] DoS - Severity: 2 - ALERT
+2026-02-09 20:05:33,806 - sentinelnet_main - INFO -   [2026-02-09 20:05:33] DoS - Severity: 2 - ALERT
+2026-02-09 20:05:33,806 - sentinelnet_main - INFO -   [2026-02-09 20:05:33] DoS - Severity: 2 - ALERT
+2026-02-09 20:05:33,807 - sentinelnet_main - INFO -   [2026-02-09 20:05:33] DoS - Severity: 2 - ALERT
+2026-02-09 20:05:33,814 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:05:33,814 - sentinelnet_main - INFO - MODULE 8: Documentation and Presentation Preparation
+2026-02-09 20:05:33,814 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:05:33,820 - sentinelnet_main - INFO - 
+================================================================================
+SENTINELNET - AI-POWERED NETWORK INTRUSION DETECTION SYSTEM
+Final Project Report
+================================================================================
+
+1. DATASET INFORMATION
+--------------------------------------------------------------------------------
+   Training samples: 125973
+   Test samples: 22544
+   Total features: 41
+   Attack categories: 5
+
+2. MODEL PERFORMANCE SUMMARY
+--------------------------------------------------------------------------------
+
+   Random Forest:
+      Accuracy:  0.7480
+      Precision: 0.8059
+      Recall:    0.7480
+      F1-Score:  0.6952
+
+   Logistic Regression:
+      Accuracy:  0.7615
+      Precision: 0.7395
+      Recall:    0.7615
+      F1-Score:  0.7085
+
+   SVM:
+      Accuracy:  0.7372
+      Precision: 0.7850
+      Recall:    0.7372
+      F1-Score:  0.6882
+
+3. BEST MODEL
+--------------------------------------------------------------------------------
+   Selected Model: Logistic Regression
+   F1-Score: 0.7085
+
+4. OUTPUTS GENERATED
+--------------------------------------------------------------------------------
+   - Feature importance plot: C:\infosys\results\feature_importance.png
+   - Confusion matrices: C:\infosys\results
+   - ROC curves: C:\infosys\results
+   - Alert logs: C:\infosys\logs\intrusion_alerts.csv
+   - Prediction logs: C:\infosys\logs\predictions.csv
+
+5. CONCLUSION
+--------------------------------------------------------------------------------
+   Successfully implemented an AI-powered Network Intrusion Detection System
+   with supervised and unsupervised learning techniques. The system can
+   accurately detect and classify various types of network attacks in real-time.
+
+================================================================================
+2026-02-09 20:05:33,831 - sentinelnet_main - INFO - 
+Saving models...
+2026-02-09 20:05:34,030 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:05:34,030 - sentinelnet_main - INFO - PIPELINE COMPLETED SUCCESSFULLY in 441.27 seconds
+2026-02-09 20:05:34,030 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:33:46,389 - sentinelnet_main - INFO - SentinelNet NIDS Initialized
+2026-02-09 20:33:46,390 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:33:46,390 - sentinelnet_main - INFO - STARTING SENTINELNET NIDS PIPELINE
+2026-02-09 20:33:46,390 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:33:46,391 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:33:46,391 - sentinelnet_main - INFO - MODULE 1: Dataset Acquisition and Exploration
+2026-02-09 20:33:46,392 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:33:46,399 - sentinelnet_main - INFO - 
+Loading datasets...
+2026-02-09 20:33:46,835 - sentinelnet_main - INFO - 
+Dataset Statistics:
+2026-02-09 20:33:46,835 - sentinelnet_main - INFO -   Total training samples: 125973
+2026-02-09 20:33:46,836 - sentinelnet_main - INFO -   Total test samples: 22544
+2026-02-09 20:33:46,836 - sentinelnet_main - INFO -   Total features: 41
+2026-02-09 20:33:46,836 - sentinelnet_main - INFO - 
+Attack Type Distribution (Training Set):
+2026-02-09 20:33:46,846 - sentinelnet_main - INFO -   normal: 67343
+2026-02-09 20:33:46,846 - sentinelnet_main - INFO -   neptune: 41214
+2026-02-09 20:33:46,846 - sentinelnet_main - INFO -   satan: 3633
+2026-02-09 20:33:46,847 - sentinelnet_main - INFO -   ipsweep: 3599
+2026-02-09 20:33:46,847 - sentinelnet_main - INFO -   portsweep: 2931
+2026-02-09 20:33:46,847 - sentinelnet_main - INFO -   smurf: 2646
+2026-02-09 20:33:46,847 - sentinelnet_main - INFO -   nmap: 1493
+2026-02-09 20:33:46,847 - sentinelnet_main - INFO -   back: 956
+2026-02-09 20:33:46,847 - sentinelnet_main - INFO -   teardrop: 892
+2026-02-09 20:33:46,849 - sentinelnet_main - INFO -   warezclient: 890
+2026-02-09 20:33:46,849 - sentinelnet_main - INFO - 
+Data Types:
+2026-02-09 20:33:46,861 - sentinelnet_main - INFO -   Numerical features: 39
+2026-02-09 20:33:46,864 - sentinelnet_main - INFO -   Categorical features: 4
+2026-02-09 20:33:46,896 - sentinelnet_main - INFO - 
+Missing Values:
+2026-02-09 20:33:46,896 - sentinelnet_main - INFO -   Training set: 0
+2026-02-09 20:33:46,896 - sentinelnet_main - INFO -   Test set: 0
+2026-02-09 20:33:46,897 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:33:46,897 - sentinelnet_main - INFO - MODULE 2: Data Cleaning and Preprocessing
+2026-02-09 20:33:46,897 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:33:46,910 - sentinelnet_main - INFO - 
+Mapping attack types to categories...
+2026-02-09 20:33:47,005 - sentinelnet_main - INFO - Encoding categorical features...
+2026-02-09 20:33:47,121 - sentinelnet_main - INFO - Normalizing numerical features...
+2026-02-09 20:33:47,254 - sentinelnet_main - INFO - 
+Class Distribution:
+2026-02-09 20:33:47,271 - sentinelnet_main - INFO -   Normal: Train=67343, Test=9711
+2026-02-09 20:33:47,281 - sentinelnet_main - INFO -   DoS: Train=45927, Test=7167
+2026-02-09 20:33:47,293 - sentinelnet_main - INFO -   R2L: Train=995, Test=2885
+2026-02-09 20:33:47,300 - sentinelnet_main - INFO -   Probe: Train=11656, Test=2421
+2026-02-09 20:33:47,311 - sentinelnet_main - INFO -   U2R: Train=52, Test=67
+2026-02-09 20:33:47,319 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:33:47,320 - sentinelnet_main - INFO - MODULE 3: Feature Engineering and Selection
+2026-02-09 20:33:47,320 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:33:47,320 - sentinelnet_main - INFO - 
+Analyzing feature importance...
+2026-02-09 20:33:48,741 - sentinelnet_main - INFO - 
+Top 10 Most Important Features:
+2026-02-09 20:33:48,741 - sentinelnet_main - INFO -   src_bytes: 0.1824
+2026-02-09 20:33:48,743 - sentinelnet_main - INFO -   flag: 0.0772
+2026-02-09 20:33:48,743 - sentinelnet_main - INFO -   dst_host_serror_rate: 0.0664
+2026-02-09 20:33:48,743 - sentinelnet_main - INFO -   same_srv_rate: 0.0640
+2026-02-09 20:33:48,743 - sentinelnet_main - INFO -   dst_bytes: 0.0613
+2026-02-09 20:33:48,744 - sentinelnet_main - INFO -   diff_srv_rate: 0.0562
+2026-02-09 20:33:48,745 - sentinelnet_main - INFO -   count: 0.0541
+2026-02-09 20:33:48,745 - sentinelnet_main - INFO -   srv_serror_rate: 0.0541
+2026-02-09 20:33:48,745 - sentinelnet_main - INFO -   dst_host_same_src_port_rate: 0.0378
+2026-02-09 20:33:48,746 - sentinelnet_main - INFO -   serror_rate: 0.0337
+2026-02-09 20:33:49,263 - sentinelnet_main - INFO - 
+Performing correlation analysis...
+2026-02-09 20:33:49,822 - sentinelnet_main - INFO - 
+Applying PCA (components=20)...
+2026-02-09 20:33:49,886 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:33:49,886 - sentinelnet_main - INFO - MODULE 4: Model Building and Training (Supervised Learning)
+2026-02-09 20:33:49,886 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:33:49,886 - sentinelnet_main - INFO - 
+[1/3] Training Random Forest Classifier...
+2026-02-09 20:33:52,467 - sentinelnet_main - INFO - 
+[2/3] Training Logistic Regression...
+2026-02-09 20:34:01,822 - sentinelnet_main - INFO - 
+[3/3] Training SVM (on PCA features)...
+2026-02-09 20:41:01,485 - sentinelnet_main - INFO - SentinelNet NIDS Initialized
+2026-02-09 20:41:31,649 - __main__ - INFO - 
+================================================================================
+2026-02-09 20:41:31,650 - __main__ - INFO - MILESTONE 1: Data Acquisition and Preprocessing
+2026-02-09 20:41:31,650 - __main__ - INFO - Weeks 1-2
+2026-02-09 20:41:31,650 - __main__ - INFO - ================================================================================
+2026-02-09 20:41:31,650 - __main__ - INFO - 
+Week 1: Dataset Acquisition and Exploration
+2026-02-09 20:41:31,650 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:41:31,650 - sentinelnet_main - INFO - MODULE 1: Dataset Acquisition and Exploration
+2026-02-09 20:41:31,651 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:41:31,658 - sentinelnet_main - INFO - 
+Loading datasets...
+2026-02-09 20:41:32,203 - sentinelnet_main - INFO - 
+Dataset Statistics:
+2026-02-09 20:41:32,204 - sentinelnet_main - INFO -   Total training samples: 125973
+2026-02-09 20:41:32,204 - sentinelnet_main - INFO -   Total test samples: 22544
+2026-02-09 20:41:32,204 - sentinelnet_main - INFO -   Total features: 41
+2026-02-09 20:41:32,204 - sentinelnet_main - INFO - 
+Attack Type Distribution (Training Set):
+2026-02-09 20:41:32,214 - sentinelnet_main - INFO -   normal: 67343
+2026-02-09 20:41:32,216 - sentinelnet_main - INFO -   neptune: 41214
+2026-02-09 20:41:32,216 - sentinelnet_main - INFO -   satan: 3633
+2026-02-09 20:41:32,216 - sentinelnet_main - INFO -   ipsweep: 3599
+2026-02-09 20:41:32,216 - sentinelnet_main - INFO -   portsweep: 2931
+2026-02-09 20:41:32,216 - sentinelnet_main - INFO -   smurf: 2646
+2026-02-09 20:41:32,216 - sentinelnet_main - INFO -   nmap: 1493
+2026-02-09 20:41:32,218 - sentinelnet_main - INFO -   back: 956
+2026-02-09 20:41:32,218 - sentinelnet_main - INFO -   teardrop: 892
+2026-02-09 20:41:32,218 - sentinelnet_main - INFO -   warezclient: 890
+2026-02-09 20:41:32,218 - sentinelnet_main - INFO - 
+Data Types:
+2026-02-09 20:41:32,237 - sentinelnet_main - INFO -   Numerical features: 39
+2026-02-09 20:41:32,241 - sentinelnet_main - INFO -   Categorical features: 4
+2026-02-09 20:41:32,280 - sentinelnet_main - INFO - 
+Missing Values:
+2026-02-09 20:41:32,281 - sentinelnet_main - INFO -   Training set: 0
+2026-02-09 20:41:32,281 - sentinelnet_main - INFO -   Test set: 0
+2026-02-09 20:41:32,281 - __main__ - INFO - 
+Week 2: Data Cleaning and Preprocessing
+2026-02-09 20:41:32,281 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:41:32,283 - sentinelnet_main - INFO - MODULE 2: Data Cleaning and Preprocessing
+2026-02-09 20:41:32,283 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:41:32,294 - sentinelnet_main - INFO - 
+Mapping attack types to categories...
+2026-02-09 20:41:32,382 - sentinelnet_main - INFO - Encoding categorical features...
+2026-02-09 20:41:32,482 - sentinelnet_main - INFO - Normalizing numerical features...
+2026-02-09 20:41:32,611 - sentinelnet_main - INFO - 
+Class Distribution:
+2026-02-09 20:41:32,629 - sentinelnet_main - INFO -   Normal: Train=67343, Test=9711
+2026-02-09 20:41:32,637 - sentinelnet_main - INFO -   DoS: Train=45927, Test=7167
+2026-02-09 20:41:32,647 - sentinelnet_main - INFO -   R2L: Train=995, Test=2885
+2026-02-09 20:41:32,654 - sentinelnet_main - INFO -   Probe: Train=11656, Test=2421
+2026-02-09 20:41:32,668 - sentinelnet_main - INFO -   U2R: Train=52, Test=67
+2026-02-09 20:41:41,780 - __main__ - INFO - 
+================================================================================
+2026-02-09 20:41:41,780 - __main__ - INFO - MILESTONE 2: Feature Engineering and Supervised Training
+2026-02-09 20:41:41,780 - __main__ - INFO - Weeks 3-4
+2026-02-09 20:41:41,780 - __main__ - INFO - ================================================================================
+2026-02-09 20:41:41,781 - __main__ - INFO - 
+Week 3: Feature Engineering and Selection
+2026-02-09 20:41:41,781 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:41:41,781 - sentinelnet_main - INFO - MODULE 3: Feature Engineering and Selection
+2026-02-09 20:41:41,781 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:41:41,781 - sentinelnet_main - INFO - 
+Analyzing feature importance...
+2026-02-09 20:41:43,152 - sentinelnet_main - INFO - 
+Top 10 Most Important Features:
+2026-02-09 20:41:43,152 - sentinelnet_main - INFO -   src_bytes: 0.1824
+2026-02-09 20:41:43,152 - sentinelnet_main - INFO -   flag: 0.0772
+2026-02-09 20:41:43,153 - sentinelnet_main - INFO -   dst_host_serror_rate: 0.0664
+2026-02-09 20:41:43,153 - sentinelnet_main - INFO -   same_srv_rate: 0.0640
+2026-02-09 20:41:43,153 - sentinelnet_main - INFO -   dst_bytes: 0.0613
+2026-02-09 20:41:43,154 - sentinelnet_main - INFO -   diff_srv_rate: 0.0562
+2026-02-09 20:41:43,154 - sentinelnet_main - INFO -   count: 0.0541
+2026-02-09 20:41:43,154 - sentinelnet_main - INFO -   srv_serror_rate: 0.0541
+2026-02-09 20:41:43,155 - sentinelnet_main - INFO -   dst_host_same_src_port_rate: 0.0378
+2026-02-09 20:41:43,155 - sentinelnet_main - INFO -   serror_rate: 0.0337
+2026-02-09 20:41:43,634 - sentinelnet_main - INFO - 
+Performing correlation analysis...
+2026-02-09 20:41:44,164 - sentinelnet_main - INFO - 
+Applying PCA (components=20)...
+2026-02-09 20:41:44,231 - __main__ - INFO - 
+Week 4: Supervised Model Training
+2026-02-09 20:41:44,231 - sentinelnet_main - INFO - 
+================================================================================
+2026-02-09 20:41:44,231 - sentinelnet_main - INFO - MODULE 4: Model Building and Training (Supervised Learning)
+2026-02-09 20:41:44,232 - sentinelnet_main - INFO - ================================================================================
+2026-02-09 20:41:44,232 - sentinelnet_main - INFO - 
+[1/3] Training Random Forest Classifier...
+2026-02-09 20:41:46,768 - sentinelnet_main - INFO - 
+[2/3] Training Logistic Regression...
+2026-02-09 20:41:57,173 - sentinelnet_main - INFO - 
+[3/3] Training SVM (on PCA features)...

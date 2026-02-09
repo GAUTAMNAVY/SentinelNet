@@ -1,0 +1,53 @@
+================================================================================
+SENTINELNET - AI-POWERED NETWORK INTRUSION DETECTION SYSTEM
+Final Project Report
+================================================================================
+
+1. DATASET INFORMATION
+--------------------------------------------------------------------------------
+   Training samples: 125973
+   Test samples: 22544
+   Total features: 41
+   Attack categories: 5
+
+2. MODEL PERFORMANCE SUMMARY
+--------------------------------------------------------------------------------
+
+   Random Forest:
+      Accuracy:  0.7480
+      Precision: 0.8059
+      Recall:    0.7480
+      F1-Score:  0.6952
+
+   Logistic Regression:
+      Accuracy:  0.7615
+      Precision: 0.7395
+      Recall:    0.7615
+      F1-Score:  0.7085
+
+   SVM:
+      Accuracy:  0.7372
+      Precision: 0.7850
+      Recall:    0.7372
+      F1-Score:  0.6882
+
+3. BEST MODEL
+--------------------------------------------------------------------------------
+   Selected Model: Logistic Regression
+   F1-Score: 0.7085
+
+4. OUTPUTS GENERATED
+--------------------------------------------------------------------------------
+   - Feature importance plot: C:\infosys\results\feature_importance.png
+   - Confusion matrices: C:\infosys\results
+   - ROC curves: C:\infosys\results
+   - Alert logs: C:\infosys\logs\intrusion_alerts.csv
+   - Prediction logs: C:\infosys\logs\predictions.csv
+
+5. CONCLUSION
+--------------------------------------------------------------------------------
+   Successfully implemented an AI-powered Network Intrusion Detection System
+   with supervised and unsupervised learning techniques. The system can
+   accurately detect and classify various types of network attacks in real-time.
+
+================================================================================

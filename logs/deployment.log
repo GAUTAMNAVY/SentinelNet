@@ -1,0 +1,5 @@
+2026-02-09 20:45:25,581 - __main__ - INFO - Deployment NIDS initialized
+2026-02-09 20:45:25,582 - __main__ - INFO - Loading trained model: Random Forest
+2026-02-09 20:45:25,888 - __main__ - INFO - Monitoring traffic file: C:\infosys\data\KDDTest+.txt
+2026-02-09 20:45:25,998 - __main__ - INFO - 
+Processing 100 traffic samples...
