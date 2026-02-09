@@ -269,8 +269,3 @@ predictions, alert_count = nids.process_batch(traffic_data)
 - **Classes**: 5 (Normal + 4 attack categories)
 
 
-For questions or issues, please open an issue in the project repository.
-
----
-
-**Built with ❤️ using Python and Scikit-Learn**
