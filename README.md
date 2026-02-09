@@ -34,9 +34,6 @@ high accuracy in detecting various types of network intrusions.
 ### Installation
 
 1. **Clone or navigate to the project directory:**
-   ```bash
-   cd c:\infosys
-   ```
 
 2. **Install dependencies:**
    ```bash
